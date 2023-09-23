@@ -42,7 +42,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return 3
+            return 2
         }
         return 0
     }
@@ -55,7 +55,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         }
         return nil
     }
-    
+    //change header text color
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
         

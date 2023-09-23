@@ -4,7 +4,6 @@
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21679"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -23,24 +22,24 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="12" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bJG-MF-vDu">
                                 <rect key="frame" x="31" y="8" width="17.333333333333329" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.95243042710000003" green="0.95243042710000003" blue="0.95243042710000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="28C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="j2d-gX-lZz">
-                                <rect key="frame" x="23.666666666666671" y="104" width="32" height="21"/>
+                                <rect key="frame" x="23.666666666666671" y="104.66666666666667" width="32" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
+                                <color key="textColor" red="0.90588235289999997" green="0.96470588239999999" blue="0.94901960780000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cloudWithMoon" translatesAutoresizingMaskIntoConstraints="NO" id="YqY-Ff-en0">
-                                <rect key="frame" x="14.666666666666664" y="41.666666666666657" width="49.999999999999993" height="50"/>
+                                <rect key="frame" x="17" y="44" width="45" height="45"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="Szu-pP-d1G"/>
-                                    <constraint firstAttribute="width" constant="50" id="a8c-Bu-inR"/>
+                                    <constraint firstAttribute="height" constant="45" id="Szu-pP-d1G"/>
+                                    <constraint firstAttribute="width" constant="45" id="a8c-Bu-inR"/>
                                 </constraints>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.062745098039215685" green="0.21176470588235294" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="bJG-MF-vDu" firstAttribute="centerX" secondItem="5VC-6h-nbZ" secondAttribute="centerX" id="P33-rs-Hdz"/>
                             <constraint firstItem="j2d-gX-lZz" firstAttribute="centerX" secondItem="5VC-6h-nbZ" secondAttribute="centerX" id="RA3-BV-bXl"/>
@@ -65,8 +64,5 @@
     </objects>
     <resources>
         <image name="cloudWithMoon" width="29" height="20"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

@@ -26,7 +26,7 @@ class HourlyTableViewCell: UITableViewCell {
         hourlyCollectionView.delegate = self
         hourlyCollectionView.dataSource = self
         
-        horizontalScroll()
+        setupScroll()
     }
     
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -35,7 +35,7 @@ class HourlyTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    private func horizontalScroll() {
+    private func setupScroll() {
         if let flowLayout = hourlyCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {
             flowLayout.scrollDirection = .horizontal
             flowLayout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0) // padding to zero

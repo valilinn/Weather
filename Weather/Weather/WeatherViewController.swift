@@ -11,6 +11,9 @@ class WeatherViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    let sizeOfHourlyCell: CGFloat = 120
+    let sizeOfForecastCell: CGFloat = 80
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTable()
@@ -19,6 +22,9 @@ class WeatherViewController: UIViewController {
     private func registerCells() {
         let hourlyCellNib = UINib(nibName: "HourlyTableViewCell", bundle: Bundle.main)
         tableView.register(hourlyCellNib, forCellReuseIdentifier: "hourlyTableViewCell")
+        
+        let forecastCellNib = UINib(nibName: "ForecastTableViewCell", bundle: Bundle.main)
+        tableView.register(forecastCellNib, forCellReuseIdentifier: "forecastTableViewCell")
         
     }
     
@@ -42,7 +48,7 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         if section == 0 {
             return 1
         } else if section == 1 {
-            return 2
+            return 3
         }
         return 0
     }
@@ -70,13 +76,21 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-         guard let cell = tableView.dequeueReusableCell(withIdentifier: "hourlyTableViewCell", for: indexPath) as? HourlyTableViewCell else { return UITableViewCell() }
-         return cell
+         if indexPath.section == 0 {
+             guard let cell = tableView.dequeueReusableCell(withIdentifier: "hourlyTableViewCell", for: indexPath) as? HourlyTableViewCell else { return UITableViewCell() }
+             return cell
+         } else {
+             guard let cell = tableView.dequeueReusableCell(withIdentifier: "forecastTableViewCell", for: indexPath) as? ForecastTableViewCell else { return UITableViewCell() }
+             return cell
+         }
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        120
+        if indexPath.section == 0 {
+            return sizeOfHourlyCell
+        } else {
+            return sizeOfForecastCell
+        }
     }
-    
     
 }

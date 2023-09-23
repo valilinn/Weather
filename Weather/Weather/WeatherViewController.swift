@@ -10,13 +10,17 @@ import UIKit
 class WeatherViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     let sizeOfHourlyCell: CGFloat = 120
     let sizeOfForecastCell: CGFloat = 80
     
+    var numbersOfRows: CGFloat = 2
+    var cellSpacing: CGFloat = 5
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTable()
+        setupTableAndCollectionView()
     }
     
     private func registerCells() {
@@ -26,13 +30,20 @@ class WeatherViewController: UIViewController {
         let forecastCellNib = UINib(nibName: "ForecastTableViewCell", bundle: Bundle.main)
         tableView.register(forecastCellNib, forCellReuseIdentifier: "forecastTableViewCell")
         
+        let parametersCellNib = UINib(nibName: "WeatherDetailsCollectionViewCell", bundle: Bundle.main)
+        collectionView.register(parametersCellNib, forCellWithReuseIdentifier: "weatherDetailsCollectionViewCell")
+        
     }
     
-    private func setupTable() {
+    private func setupTableAndCollectionView() {
         registerCells()
         tableView.delegate = self
         tableView.dataSource = self
         tableView.backgroundColor = UIColor.clear
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.backgroundColor = UIColor.clear
     }
     
     
@@ -91,6 +102,32 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             return sizeOfForecastCell
         }
+    }
+    
+}
+
+extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "weatherDetailsCollectionViewCell", for: indexPath) as? WeatherDetailsCollectionViewCell else { return UICollectionViewCell() }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let leftAndRightPaddings: CGFloat = 45.0
+        let numberOfItemsPerRow: CGFloat = 2.0
+        
+        let width = (collectionView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
+        return CGSize(width: width, height: width) // You can change width and height here as pr your requirement
+        
+    }
+
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        1
     }
     
 }

@@ -26,6 +26,7 @@ class WeatherViewController: UIViewController {
         registerCells()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.backgroundColor = UIColor.clear
     }
     
     
@@ -48,11 +49,24 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if section == 0 {
-            return "Current weather"
+            return "Next 24-hours"
         } else if section == 1 {
             return "3-days weather forecast"
         }
         return nil
+    }
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let headerView = UIView()
+        
+        let headerLabel = UILabel()
+        headerLabel.text = tableView.dataSource?.tableView?(tableView, titleForHeaderInSection: section)
+        headerLabel.textColor = UIColor.white
+        headerLabel.frame = CGRect(x: 15, y: 5, width: tableView.frame.size.width - 30, height: 30)
+        
+        headerView.addSubview(headerLabel)
+        
+        return headerView
     }
     
      func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -11,6 +11,8 @@
 		EA2AABD22ABEEA9A008C62AE /* HourlyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA2AABD02ABEEA9A008C62AE /* HourlyTableViewCell.xib */; };
 		EA2AABD52ABEF124008C62AE /* WeatherForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2AABD32ABEF124008C62AE /* WeatherForecastTableViewCell.swift */; };
 		EA2AABD62ABEF124008C62AE /* WeatherForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA2AABD42ABEF124008C62AE /* WeatherForecastTableViewCell.xib */; };
+		EA2AABD92ABF0DCE008C62AE /* HourlyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2AABD72ABF0DCE008C62AE /* HourlyCollectionViewCell.swift */; };
+		EA2AABDA2ABF0DCE008C62AE /* HourlyCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA2AABD82ABF0DCE008C62AE /* HourlyCollectionViewCell.xib */; };
 		EA61D56D2AB0D02A0001CCC4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61D56C2AB0D02A0001CCC4 /* AppDelegate.swift */; };
 		EA61D56F2AB0D02A0001CCC4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61D56E2AB0D02A0001CCC4 /* SceneDelegate.swift */; };
 		EA61D5712AB0D02A0001CCC4 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA61D5702AB0D02A0001CCC4 /* WeatherViewController.swift */; };
@@ -44,6 +46,8 @@
 		EA2AABD02ABEEA9A008C62AE /* HourlyTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyTableViewCell.xib; sourceTree = "<group>"; };
 		EA2AABD32ABEF124008C62AE /* WeatherForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastTableViewCell.swift; sourceTree = "<group>"; };
 		EA2AABD42ABEF124008C62AE /* WeatherForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WeatherForecastTableViewCell.xib; sourceTree = "<group>"; };
+		EA2AABD72ABF0DCE008C62AE /* HourlyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA2AABD82ABF0DCE008C62AE /* HourlyCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyCollectionViewCell.xib; sourceTree = "<group>"; };
 		EA61D5692AB0D02A0001CCC4 /* Weather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Weather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EA61D56C2AB0D02A0001CCC4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EA61D56E2AB0D02A0001CCC4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -112,6 +116,8 @@
 				EA61D5702AB0D02A0001CCC4 /* WeatherViewController.swift */,
 				EA2AABCF2ABEEA9A008C62AE /* HourlyTableViewCell.swift */,
 				EA2AABD02ABEEA9A008C62AE /* HourlyTableViewCell.xib */,
+				EA2AABD72ABF0DCE008C62AE /* HourlyCollectionViewCell.swift */,
+				EA2AABD82ABF0DCE008C62AE /* HourlyCollectionViewCell.xib */,
 				EA2AABD32ABEF124008C62AE /* WeatherForecastTableViewCell.swift */,
 				EA2AABD42ABEF124008C62AE /* WeatherForecastTableViewCell.xib */,
 				EA61D5722AB0D02A0001CCC4 /* Main.storyboard */,
@@ -248,6 +254,7 @@
 				EA2AABD22ABEEA9A008C62AE /* HourlyTableViewCell.xib in Resources */,
 				EA2AABD62ABEF124008C62AE /* WeatherForecastTableViewCell.xib in Resources */,
 				EA61D5742AB0D02A0001CCC4 /* Main.storyboard in Resources */,
+				EA2AABDA2ABF0DCE008C62AE /* HourlyCollectionViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -277,6 +284,7 @@
 				EA2AABD12ABEEA9A008C62AE /* HourlyTableViewCell.swift in Sources */,
 				EA2AABD52ABEF124008C62AE /* WeatherForecastTableViewCell.swift in Sources */,
 				EA61D56F2AB0D02A0001CCC4 /* SceneDelegate.swift in Sources */,
+				EA2AABD92ABF0DCE008C62AE /* HourlyCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

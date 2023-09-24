@@ -6,6 +6,11 @@
 //
 
 import UIKit
+import Alamofire
+
+enum WeatherRequestPath: String {
+    case currentWeather = "/current.json"
+}
 
 class WeatherViewController: UIViewController {
 
@@ -18,9 +23,16 @@ class WeatherViewController: UIViewController {
     var numbersOfRows: CGFloat = 2
     var cellSpacing: CGFloat = 5
     
+    private let baseUlr = "weatherapi-com.p.rapidapi.com"
+    private let apiKey = "1513a718cdmsh8029cf744888920p14a113jsn282b8a4b7b33"
+    var currentCity = "Tychy"
+    
+    private let settings = Settings()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupTableAndCollectionView()
+        makeCurrentWeatherRequest()
     }
     
     private func registerCells() {
@@ -46,6 +58,45 @@ class WeatherViewController: UIViewController {
         collectionView.backgroundColor = UIColor.clear
     }
     
+    func makeCurrentWeatherRequest() {
+        let urlComponents = makeUrlComponents(for: .currentWeather, place: currentCity)
+        let headers: HTTPHeaders = HTTPHeaders([
+            "X-RapidAPI-Key" : self.apiKey,
+            "X-RapidAPI-Host" : self.baseUlr
+        ])
+        
+        AF.request(urlComponents, headers: headers).response { response in
+            guard response.error == nil else {
+                print("Request error")
+                return
+            }
+            
+            guard let data = response.data else {
+                print("Request error")
+                return
+            }
+            
+            guard (200..<300).contains(response.response?.statusCode ?? 0) else {
+                print("Wrong Status Code")
+                return
+            }
+            
+            guard let responseModel = try? JSONDecoder().decode(RealtimeWeatherResponse.self, from: data) else {
+                print("Decode error")
+                return
+            }
+            print(responseModel)
+        }
+    }
+    
+    private func makeUrlComponents(for weatherType: WeatherRequestPath, place: String) -> URLComponents {
+        var components = URLComponents()
+        components.scheme = "https"
+        components.host = self.baseUlr
+        components.path = weatherType.rawValue  //"/current.json"
+        components.queryItems = [URLQueryItem(name: "q", value: place)]
+        return components
+    }
     
 }
 
@@ -75,7 +126,6 @@ extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
     //change header text color
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let headerView = UIView()
-        
         let headerLabel = UILabel()
         headerLabel.text = tableView.dataSource?.tableView?(tableView, titleForHeaderInSection: section)
         headerLabel.textColor = UIColor.white
@@ -122,7 +172,7 @@ extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataS
         let numberOfItemsPerRow: CGFloat = 2.0
         
         let width = (collectionView.frame.width - leftAndRightPaddings) / numberOfItemsPerRow
-        return CGSize(width: width, height: width) // You can change width and height here as pr your requirement
+        return CGSize(width: width, height: width)
         
     }
 

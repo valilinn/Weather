@@ -17,6 +17,9 @@ class WeatherViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     
+    @IBOutlet weak var cityLabel: UILabel!
+    @IBOutlet weak var currentTemperatureLabel: UILabel!
+    
     let sizeOfHourlyCell: CGFloat = 120
     let sizeOfForecastCell: CGFloat = 80
     
@@ -31,8 +34,11 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
         setupTableAndCollectionView()
-        makeCurrentWeatherRequest()
+//        makeCurrentWeatherRequest()
+        
+        cityLabel.text = currentCity
     }
     
     private func registerCells() {

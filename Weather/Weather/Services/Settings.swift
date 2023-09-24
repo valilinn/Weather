@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum VelocityType: String {
+enum WindVelocityType: String {
     case mph = "mph"
     case kph = "km/h"
     case mps = "m/s"
@@ -29,14 +29,14 @@ enum TemperatureType: String {
 }
 
 enum SpaceType: String {
-    case km
-    case miles
+    case km = "km"
+    case miles = "miles"
 }
 
 class Settings {
-    var valocity: VelocityType = .kph
+    var temperature: TemperatureType = .celsius
+    var windVelocity: WindVelocityType = .kph
     var pressure: PressureType = .mbar
     var precipitation: PrecipitationType = .mm
-    var temperature: TemperatureType = .celsius
     var space: SpaceType = .km
 }

@@ -60,6 +60,10 @@
                 <constraint firstAttribute="trailing" secondItem="5VC-6h-nbZ" secondAttribute="trailing" id="mz3-y8-pXI"/>
             </constraints>
             <size key="customSize" width="79" height="133"/>
+            <connections>
+                <outlet property="hour" destination="bJG-MF-vDu" id="zGG-dQ-4F1"/>
+                <outlet property="temperaturePerHour" destination="j2d-gX-lZz" id="8Zi-Ol-ltb"/>
+            </connections>
             <point key="canvasLocation" x="48.091603053435115" y="48.943661971830991"/>
         </collectionViewCell>
     </objects>

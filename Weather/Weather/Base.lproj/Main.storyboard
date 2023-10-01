@@ -58,11 +58,22 @@
                                                         <color key="textColor" red="0.95243042710000003" green="0.95243042710000003" blue="0.95243042710000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="24g-Mz-ow0">
+                                                        <rect key="frame" x="16" y="64" width="47" height="34.333333333333343"/>
+                                                        <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
+                                                        <connections>
+                                                            <action selector="refresh:" destination="Qo7-fY-ccE" eventType="touchUpInside" id="YQK-ta-b81"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                                 <constraints>
                                                     <constraint firstAttribute="bottom" secondItem="t9k-kt-qGG" secondAttribute="bottom" constant="25" id="21a-ir-kCb"/>
                                                     <constraint firstItem="Qae-km-huZ" firstAttribute="centerX" secondItem="t9k-kt-qGG" secondAttribute="centerX" id="2fT-NF-uOE"/>
                                                     <constraint firstAttribute="height" constant="300" id="4Gl-3l-fwB"/>
+                                                    <constraint firstItem="24g-Mz-ow0" firstAttribute="top" secondItem="Zrk-Z0-2Jc" secondAttribute="top" constant="64" id="4Ra-1u-Mw5"/>
+                                                    <constraint firstItem="24g-Mz-ow0" firstAttribute="leading" secondItem="Zrk-Z0-2Jc" secondAttribute="leading" constant="16" id="65W-wH-kzJ"/>
                                                     <constraint firstItem="t9k-kt-qGG" firstAttribute="top" secondItem="Qae-km-huZ" secondAttribute="bottom" constant="37" id="7rV-xH-rWW"/>
                                                     <constraint firstItem="LYd-hn-dGm" firstAttribute="leading" secondItem="Zrk-Z0-2Jc" secondAttribute="leading" id="RS9-KG-aoy"/>
                                                     <constraint firstItem="Qae-km-huZ" firstAttribute="leading" secondItem="Zrk-Z0-2Jc" secondAttribute="leading" constant="8" id="SeW-wV-Ydw"/>
@@ -172,6 +183,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrow.clockwise" catalog="system" width="113" height="128"/>
         <image name="cloudsFill" width="372" height="288"/>
         <image name="gearshape.fill" catalog="system" width="128" height="123"/>
         <systemColor name="systemBackgroundColor">

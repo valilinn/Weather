@@ -7,6 +7,32 @@
 
 import Foundation
 
+enum TemperatureType: String {
+    case celsius = "°C"
+    case fahrenheit = "°F"
+}
+
+enum WindVelocityType: String {
+    case mph = "mph"
+    case kph = "km/h"
+    case mps = "m/s"
+}
+
+enum PressureType: String {
+    case mbar = "mbar"
+    case inches = "inHg"
+}
+
+enum PrecipitationType: String {
+    case mm = "mm"
+    case inches = "in"
+}
+
+enum SpaceType: String {
+    case km = "km"
+    case miles = "miles"
+}
+
 class Settings {
     var temperature: TemperatureType = .celsius
     var windVelocity: WindVelocityType = .kph
@@ -15,31 +41,6 @@ class Settings {
     var space: SpaceType = .km
     
     
-    enum TemperatureType: String {
-        case celsius = "°C"
-        case fahrenheit = "°F"
-    }
-    
-    enum WindVelocityType: String {
-        case mph = "mph"
-        case kph = "km/h"
-        case mps = "m/s"
-    }
-    
-    enum PressureType: String {
-        case mbar = "mbar"
-        case inches = "inHg"
-    }
-    
-    enum PrecipitationType: String {
-        case mm = "mm"
-        case inches = "in"
-    }
-    
-    enum SpaceType: String {
-        case km = "km"
-        case miles = "miles"
-    }
     
     func saveToUserDefaults() {
         let defaults = UserDefaults.standard

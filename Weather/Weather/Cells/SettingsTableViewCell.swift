@@ -45,12 +45,12 @@ class SettingsTableViewCell: UITableViewCell {
         case 0:
             unitLabel.text = "Temperature"
             unitSelectionButton.menu = UIMenu(children: [
-                self.createUnitAction(title: Settings.TemperatureType.celsius.rawValue, isSelected: self.settings?.temperature == .celsius) { action in
+                self.createUnitAction(title: TemperatureType.celsius.rawValue, isSelected: self.settings?.temperature == .celsius) { action in
                     self.settings?.temperature = .celsius
                     self.settings?.saveToUserDefaults()
                     print(action)
                 },
-                self.createUnitAction(title: Settings.TemperatureType.fahrenheit.rawValue, isSelected: self.settings?.temperature == .fahrenheit) { action in
+                self.createUnitAction(title: TemperatureType.fahrenheit.rawValue, isSelected: self.settings?.temperature == .fahrenheit) { action in
                     self.settings?.temperature = .fahrenheit
                     self.settings?.saveToUserDefaults()
                     print(action)
@@ -60,17 +60,17 @@ class SettingsTableViewCell: UITableViewCell {
         case 1:
             unitLabel.text = "Wind"
             unitSelectionButton.menu = UIMenu(children: [
-                self.createUnitAction(title: Settings.WindVelocityType.mph.rawValue, isSelected: self.settings?.windVelocity == .mph) { action in
+                self.createUnitAction(title: WindVelocityType.mph.rawValue, isSelected: self.settings?.windVelocity == .mph) { action in
                     self.settings?.windVelocity = .mph
                     self.settings?.saveToUserDefaults()
                     print(action)
                 },
-                self.createUnitAction(title: Settings.WindVelocityType.kph.rawValue, isSelected: self.settings?.windVelocity == .kph) { action in
+                self.createUnitAction(title: WindVelocityType.kph.rawValue, isSelected: self.settings?.windVelocity == .kph) { action in
                     self.settings?.windVelocity = .kph
                     self.settings?.saveToUserDefaults()
                     print(action)
                 },
-                self.createUnitAction(title: Settings.WindVelocityType.mps.rawValue, isSelected: self.settings?.windVelocity == .mps) { action in
+                self.createUnitAction(title: WindVelocityType.mps.rawValue, isSelected: self.settings?.windVelocity == .mps) { action in
                     self.settings?.windVelocity = .mps
                     self.settings?.saveToUserDefaults()
                     print(action)
@@ -80,12 +80,12 @@ class SettingsTableViewCell: UITableViewCell {
         case 2:
             unitLabel.text = "Pressure"
             unitSelectionButton.menu = UIMenu(children: [
-                self.createUnitAction(title: Settings.PressureType.mbar.rawValue, isSelected: self.settings?.pressure == .mbar) { action in
+                self.createUnitAction(title: PressureType.mbar.rawValue, isSelected: self.settings?.pressure == .mbar) { action in
                     self.settings?.pressure = .mbar
                     self.settings?.saveToUserDefaults()
                     print(action)
                 },
-                self.createUnitAction(title: Settings.PressureType.inches.rawValue, isSelected: self.settings?.pressure == .inches) { action in
+                self.createUnitAction(title: PressureType.inches.rawValue, isSelected: self.settings?.pressure == .inches) { action in
                     self.settings?.pressure = .inches
                     self.settings?.saveToUserDefaults()
                     print(action)
@@ -95,12 +95,12 @@ class SettingsTableViewCell: UITableViewCell {
         case 3:
             unitLabel.text = "Precipitation"
             unitSelectionButton.menu = UIMenu(children: [
-                self.createUnitAction(title: Settings.PrecipitationType.mm.rawValue, isSelected: self.settings?.precipitation == .mm) { action in
+                self.createUnitAction(title: PrecipitationType.mm.rawValue, isSelected: self.settings?.precipitation == .mm) { action in
                     self.settings?.precipitation = .mm
                     self.settings?.saveToUserDefaults()
                     print(action)
                 },
-                self.createUnitAction(title: Settings.PrecipitationType.inches.rawValue, isSelected: self.settings?.precipitation == .inches) { action in
+                self.createUnitAction(title: PrecipitationType.inches.rawValue, isSelected: self.settings?.precipitation == .inches) { action in
                     self.settings?.precipitation = .inches
                     self.settings?.saveToUserDefaults()
                     print(action)
@@ -110,12 +110,12 @@ class SettingsTableViewCell: UITableViewCell {
         case 4:
             unitLabel.text = "Visibility"
             unitSelectionButton.menu = UIMenu(children: [
-                self.createUnitAction(title: Settings.SpaceType.km.rawValue, isSelected: self.settings?.space == .km) { action in
+                self.createUnitAction(title: SpaceType.km.rawValue, isSelected: self.settings?.space == .km) { action in
                     self.settings?.space = .km
                     self.settings?.saveToUserDefaults()
                     print(action)
                 },
-                self.createUnitAction(title: Settings.SpaceType.miles.rawValue, isSelected: self.settings?.space == .miles) { action in
+                self.createUnitAction(title: SpaceType.miles.rawValue, isSelected: self.settings?.space == .miles) { action in
                     self.settings?.space = .miles
                     self.settings?.saveToUserDefaults()
                     print(action)

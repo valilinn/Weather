@@ -16,7 +16,6 @@ class WeatherViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
-    
     @IBOutlet weak var cityLabel: UILabel!
     @IBOutlet weak var currentTemperatureLabel: UILabel!
     
@@ -26,20 +25,27 @@ class WeatherViewController: UIViewController {
     var numbersOfRows: CGFloat = 2
     var cellSpacing: CGFloat = 5
     
-    private let baseUlr = "weatherapi-com.p.rapidapi.com"
-    private let apiKey = "1513a718cdmsh8029cf744888920p14a113jsn282b8a4b7b33"
-    var currentCity = "Tychy"
-    
     private let settings = Settings()
+    private let apiWorker = WeatherApiWorker()
+    private let adapter = ValuesAdapter()
+    
+    var lastResponse: RealtimeWeatherResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
        
+        settings.loadFromUserDefaults()
         setupTableAndCollectionView()
-//        makeCurrentWeatherRequest()
-        
-        cityLabel.text = currentCity
+        apiWorker.delegate = self
+        apiWorker.makeCurrentWeatherRequest()
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? SettingsViewController {
+            destinationVC.settings = settings
+        }
+    }
+    
     
     private func registerCells() {
         let hourlyCellNib = UINib(nibName: "HourlyTableViewCell", bundle: Bundle.main)
@@ -64,46 +70,17 @@ class WeatherViewController: UIViewController {
         collectionView.backgroundColor = UIColor.clear
     }
     
-    func makeCurrentWeatherRequest() {
-        let urlComponents = makeUrlComponents(for: .currentWeather, place: currentCity)
-        let headers: HTTPHeaders = HTTPHeaders([
-            "X-RapidAPI-Key" : self.apiKey,
-            "X-RapidAPI-Host" : self.baseUlr
-        ])
+    func updateValues() {
+        guard let info = lastResponse?.currentWeather else { return }
         
-        AF.request(urlComponents, headers: headers).response { response in
-            guard response.error == nil else {
-                print("Request error")
-                return
-            }
-            
-            guard let data = response.data else {
-                print("Request error")
-                return
-            }
-            
-            guard (200..<300).contains(response.response?.statusCode ?? 0) else {
-                print("Wrong Status Code")
-                return
-            }
-            
-            guard let responseModel = try? JSONDecoder().decode(RealtimeWeatherResponse.self, from: data) else {
-                print("Decode error")
-                return
-            }
-            print(responseModel)
-        }
+        cityLabel.text = apiWorker.currentCity
+        currentTemperatureLabel.text = adapter.getTemperature(for: info, with: settings)
+        
     }
     
-    private func makeUrlComponents(for weatherType: WeatherRequestPath, place: String) -> URLComponents {
-        var components = URLComponents()
-        components.scheme = "https"
-        components.host = self.baseUlr
-        components.path = weatherType.rawValue  //"/current.json"
-        components.queryItems = [URLQueryItem(name: "q", value: place)]
-        return components
+    @IBAction func refresh(_ sender: Any) {
+        apiWorker.makeCurrentWeatherRequest()
     }
-    
 }
 
 
@@ -186,4 +163,17 @@ extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataS
         1
     }
     
+}
+
+extension WeatherViewController: WeatherApiWorkerDelegate {
+    func gotRealtimeWeather(response: RealtimeWeatherResponse) {
+            lastResponse = response
+            updateValues()
+    }
+    
+    func gotError(description: String) {
+        let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default))
+        present(alert, animated: true)
+    }
 }

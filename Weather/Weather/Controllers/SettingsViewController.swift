@@ -25,7 +25,9 @@ class SettingsViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-       
+        guard let parentVC = presentingViewController as? WeatherViewController else { return }
+        settings.loadFromUserDefaults()
+        parentVC.updateValues()
     }
     
     private func registerCell() {

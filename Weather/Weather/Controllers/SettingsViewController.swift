@@ -41,6 +41,11 @@ class SettingsViewController: UIViewController {
         tableView.delegate = self
         tableView.dataSource = self
     }
+    
+    @IBAction func doneButton(_ sender: Any) {
+        dismiss(animated: true)
+    }
+    
 }
 
 extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {

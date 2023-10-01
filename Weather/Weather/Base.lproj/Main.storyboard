@@ -159,17 +159,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Wd2-38-PRJ">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                                <rect key="frame" x="0.0" y="32" width="393" height="810"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </tableView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uQB-tT-Ksz">
+                                <rect key="frame" x="303.66666666666669" y="16" width="73.333333333333314" height="38"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done">
+                                    <fontDescription key="titleFontDescription" type="boldSystem" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneButton:" destination="aBx-KR-X0T" eventType="touchUpInside" id="aU8-NG-O8y"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="swv-es-IQ5"/>
                         <color key="backgroundColor" red="0.054901960784313725" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Wd2-38-PRJ" firstAttribute="top" secondItem="swv-es-IQ5" secondAttribute="top" id="Y4k-7L-yFY"/>
+                            <constraint firstItem="uQB-tT-Ksz" firstAttribute="top" secondItem="swv-es-IQ5" secondAttribute="top" constant="16" id="Bhy-vP-hOo"/>
+                            <constraint firstItem="Wd2-38-PRJ" firstAttribute="top" secondItem="swv-es-IQ5" secondAttribute="top" constant="32" id="Y4k-7L-yFY"/>
                             <constraint firstItem="Wd2-38-PRJ" firstAttribute="bottom" secondItem="swv-es-IQ5" secondAttribute="bottom" id="frw-fw-lnK"/>
                             <constraint firstAttribute="trailing" secondItem="Wd2-38-PRJ" secondAttribute="trailing" id="js0-xE-fwO"/>
                             <constraint firstItem="Wd2-38-PRJ" firstAttribute="leading" secondItem="swv-es-IQ5" secondAttribute="leading" id="kyt-3R-MIM"/>
+                            <constraint firstItem="swv-es-IQ5" firstAttribute="trailing" secondItem="uQB-tT-Ksz" secondAttribute="trailing" constant="16" id="v8D-4V-u80"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="PNU-GU-QpO"/>

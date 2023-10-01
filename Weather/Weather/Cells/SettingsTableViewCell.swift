@@ -15,11 +15,16 @@ class SettingsTableViewCell: UITableViewCell {
     
     @IBOutlet weak var unitSelectionButton: UIButton!
     
+    var settings: Settings?
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         roundedView.layer.cornerRadius = 10
         roundedView.layer.masksToBounds = true
     }
+    
+    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -27,13 +32,12 @@ class SettingsTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-//    func setupUnitButton(settingType: Settings, state: UIMenuElement.State) {
+
     
-    func setupUnitButton(index: Int) {
+    func setupUnitButton(index: Int, settings: Settings?) {
         
-        let selectedUnit = {(action: UIAction) in
-            print(action.title)}
         
+                
         unitSelectionButton.showsMenuAsPrimaryAction = true
         unitSelectionButton.changesSelectionAsPrimaryAction = true
         
@@ -41,37 +45,81 @@ class SettingsTableViewCell: UITableViewCell {
         case 0:
             unitLabel.text = "Temperature"
             unitSelectionButton.menu = UIMenu(children: [
-                UIAction(title: "°C", state: .on, handler: selectedUnit),
-                UIAction(title: "°F", state: .off, handler: selectedUnit)
+                self.createUnitAction(title: Settings.TemperatureType.celsius.rawValue, isSelected: self.settings?.temperature == .celsius) { action in
+                    self.settings?.temperature = .celsius
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                },
+                self.createUnitAction(title: Settings.TemperatureType.fahrenheit.rawValue, isSelected: self.settings?.temperature == .fahrenheit) { action in
+                    self.settings?.temperature = .fahrenheit
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                }
             ])
             
         case 1:
             unitLabel.text = "Wind"
             unitSelectionButton.menu = UIMenu(children: [
-                UIAction(title: "mph", state: .on, handler: selectedUnit),
-                UIAction(title: "km/h", state: .off, handler: selectedUnit),
-                UIAction(title: "m/s", state: .off, handler: selectedUnit)
+                self.createUnitAction(title: Settings.WindVelocityType.mph.rawValue, isSelected: self.settings?.windVelocity == .mph) { action in
+                    self.settings?.windVelocity = .mph
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                },
+                self.createUnitAction(title: Settings.WindVelocityType.kph.rawValue, isSelected: self.settings?.windVelocity == .kph) { action in
+                    self.settings?.windVelocity = .kph
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                },
+                self.createUnitAction(title: Settings.WindVelocityType.mps.rawValue, isSelected: self.settings?.windVelocity == .mps) { action in
+                    self.settings?.windVelocity = .mps
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                }
             ])
             
         case 2:
             unitLabel.text = "Pressure"
             unitSelectionButton.menu = UIMenu(children: [
-                UIAction(title: "mbar", state: .on, handler: selectedUnit),
-                UIAction(title: "inHg", state: .off, handler: selectedUnit)
+                self.createUnitAction(title: Settings.PressureType.mbar.rawValue, isSelected: self.settings?.pressure == .mbar) { action in
+                    self.settings?.pressure = .mbar
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                },
+                self.createUnitAction(title: Settings.PressureType.inches.rawValue, isSelected: self.settings?.pressure == .inches) { action in
+                    self.settings?.pressure = .inches
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                }
             ])
             
         case 3:
             unitLabel.text = "Precipitation"
             unitSelectionButton.menu = UIMenu(children: [
-                UIAction(title: "mm", state: .on, handler: selectedUnit),
-                UIAction(title: "in", state: .off, handler: selectedUnit)
+                self.createUnitAction(title: Settings.PrecipitationType.mm.rawValue, isSelected: self.settings?.precipitation == .mm) { action in
+                    self.settings?.precipitation = .mm
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                },
+                self.createUnitAction(title: Settings.PrecipitationType.inches.rawValue, isSelected: self.settings?.precipitation == .inches) { action in
+                    self.settings?.precipitation = .inches
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                }
             ])
             
         case 4:
             unitLabel.text = "Visibility"
             unitSelectionButton.menu = UIMenu(children: [
-                UIAction(title: "km", state: .on, handler: selectedUnit),
-                UIAction(title: "miles", state: .off, handler: selectedUnit)
+                self.createUnitAction(title: Settings.SpaceType.km.rawValue, isSelected: self.settings?.space == .km) { action in
+                    self.settings?.space = .km
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                },
+                self.createUnitAction(title: Settings.SpaceType.miles.rawValue, isSelected: self.settings?.space == .miles) { action in
+                    self.settings?.space = .miles
+                    self.settings?.saveToUserDefaults()
+                    print(action)
+                }
             ])
             
         default:
@@ -79,7 +127,10 @@ class SettingsTableViewCell: UITableViewCell {
         }
         
         
-        
+    }
+    
+    private func createUnitAction(title: String, isSelected: Bool, handler: @escaping UIActionHandler) -> UIAction {
+        return UIAction(title: title, state: isSelected ? .on : .off, handler: handler)
     }
     
     

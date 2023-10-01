@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    weak var settings: Settings!
+    var settings = Settings()
     
     var settingCellsCount = 5
     
@@ -19,6 +19,13 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
+        settings.loadFromUserDefaults()
+        
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+       
     }
     
     private func registerCell() {
@@ -63,23 +70,28 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
          switch indexPath.row {
          case 0:
              guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsTableViewCell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-             cell.setupUnitButton(index: indexPath.row)
+             cell.settings = settings
+             cell.setupUnitButton(index: indexPath.row, settings: settings)
              return cell
          case 1:
              guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsTableViewCell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-             cell.setupUnitButton(index: indexPath.row)
+             cell.settings = settings
+             cell.setupUnitButton(index: indexPath.row, settings: settings)
              return cell
          case 2:
              guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsTableViewCell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-             cell.setupUnitButton(index: indexPath.row)
+             cell.settings = settings
+             cell.setupUnitButton(index: indexPath.row, settings: settings)
              return cell
          case 3:
              guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsTableViewCell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-             cell.setupUnitButton(index: indexPath.row)
+             cell.settings = settings
+             cell.setupUnitButton(index: indexPath.row, settings: settings)
              return cell
          case 4:
              guard let cell = tableView.dequeueReusableCell(withIdentifier: "settingsTableViewCell", for: indexPath) as? SettingsTableViewCell else { return UITableViewCell() }
-             cell.setupUnitButton(index: indexPath.row)
+             cell.settings = settings 
+             cell.setupUnitButton(index: indexPath.row, settings: settings)
              return cell
          default:
              return UITableViewCell()

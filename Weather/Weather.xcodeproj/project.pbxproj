@@ -242,8 +242,8 @@
 			children = (
 				EA61D56C2AB0D02A0001CCC4 /* AppDelegate.swift */,
 				EA61D56E2AB0D02A0001CCC4 /* SceneDelegate.swift */,
-				EA307EC82AC04B6400F2901C /* Controllers */,
 				EA5770B82AE5A69C008B93E4 /* ViewModels */,
+				EA307EC82AC04B6400F2901C /* Controllers */,
 				EA307EC92AC04B8500F2901C /* Cells */,
 				EA307ECA2AC04BC600F2901C /* Models */,
 				EA307ED32AC08B1100F2901C /* Services */,

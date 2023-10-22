@@ -9,19 +9,19 @@ import Foundation
 
 final class ObservableObject<T> {
     
-    var value: T? {
+    var value: T {
         didSet {
             notifyObservers()
         }
     }
     
-    private var observers: [((T?) -> ())] = []
+    private var observers: [((T) -> ())] = []
     
-    init(_ value: T?) {
+    init(_ value: T) {
         self.value = value
     }
     
-    func bind(_ observer: @escaping (T?) -> ()) {
+    func bind(_ observer: @escaping (T) -> ()) {
         observers.append(observer)
     }
     

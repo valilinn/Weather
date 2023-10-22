@@ -8,6 +8,11 @@
 import Foundation
 import Alamofire
 
+
+enum WeatherRequestPath: String {
+    case currentWeather = "/forecast.json"
+}
+
 class WeatherApiWorker {
     private let baseUlr = "weatherapi-com.p.rapidapi.com"
     private let apiKey = "1513a718cdmsh8029cf744888920p14a113jsn282b8a4b7b33"

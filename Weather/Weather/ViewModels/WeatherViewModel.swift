@@ -7,6 +7,11 @@
 
 import Foundation
 
+
+
 struct WeatherViewModel {
+    var cityName: String?
+    var currentTemperature: String?
+    
     
 }

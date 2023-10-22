@@ -9,7 +9,7 @@ import Foundation
 
 class ValuesAdapter {
     
-    func getTemperature(for info: WeatherInfo, with settings: Settings) -> String {
+    func getTemperature(for info: CurrentWeather, with settings: Settings) -> String {
         switch settings.temperature {
         case .celsius:
             return "\(info.tempInCelsius) \(TemperatureType.celsius.rawValue)"
@@ -19,7 +19,7 @@ class ValuesAdapter {
         
     }
     
-    func getWindVelocity(for info: WeatherInfo, with settings: Settings) -> String {
+    func getWindVelocity(for info: CurrentWeather, with settings: Settings) -> String {
         switch settings.windVelocity {
         case .mph:
             return "\(info.windInMilesPerHour) \(WindVelocityType.mph.rawValue)"
@@ -30,7 +30,7 @@ class ValuesAdapter {
         }
     }
     
-    func getPressure(for info: WeatherInfo, with settings: Settings) -> String {
+    func getPressure(for info: CurrentWeather, with settings: Settings) -> String {
         switch settings.pressure {
         case .mbar:
             return "\(info.pressureInMilliBars) \(PressureType.mbar.rawValue)"
@@ -39,7 +39,7 @@ class ValuesAdapter {
         }
     }
     
-    func getPrecipitation(for info: WeatherInfo, with settings: Settings) -> String {
+    func getPrecipitation(for info: CurrentWeather, with settings: Settings) -> String {
         switch settings.precipitation {
         case .mm:
             return "\(info.precipitationInMilliMeters) \(PrecipitationType.mm.rawValue)"
@@ -48,7 +48,7 @@ class ValuesAdapter {
         }
     }
     
-    func getVisibleSpace(for info: WeatherInfo, with settings: Settings) -> String {
+    func getVisibleSpace(for info: CurrentWeather, with settings: Settings) -> String {
         switch settings.space {
         case .km:
             return "\(info.visibleInKiloMeters) \(SpaceType.km.rawValue)"

@@ -9,7 +9,7 @@ import UIKit
 import Alamofire
 
 enum WeatherRequestPath: String {
-    case currentWeather = "/current.json"
+    case currentWeather = "/forecast.json"
 }
 
 class WeatherViewController: UIViewController {

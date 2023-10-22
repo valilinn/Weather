@@ -11,7 +11,7 @@ class SettingsViewController: UIViewController {
     
     @IBOutlet weak var tableView: UITableView!
     
-    var settings = Settings()
+    var settings: Settings?
     
     var settingCellsCount = 5
     
@@ -19,14 +19,14 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
-        settings.loadFromUserDefaults()
+        settings?.loadFromUserDefaults()
         
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         guard let parentVC = presentingViewController as? WeatherViewController else { return }
-        settings.loadFromUserDefaults()
+        settings?.loadFromUserDefaults()
         parentVC.updateValues()
     }
     

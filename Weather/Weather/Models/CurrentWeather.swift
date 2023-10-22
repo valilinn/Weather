@@ -1,5 +1,5 @@
 //
-//  WeatherInfo.swift
+//  CurrentWeather.swift
 //  Weather
 //
 //  Created by Валентина Лінчук on 24/09/2023.
@@ -7,46 +7,13 @@
 
 import Foundation
 
-/*
- "current": {
-        "last_updated_epoch": 1695551400,
-        "last_updated": "2023-09-24 12:30",
-        "temp_c": 15.0,
-        "temp_f": 59.0,
-        "is_day": 1,
-        "condition": {
-            "text": "Sunny",
-            "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
-            "code": 1000
-        },
-        "wind_mph": 6.9,
-        "wind_kph": 11.2,
-        "wind_degree": 10,
-        "wind_dir": "N",
-        "pressure_mb": 1025.0,
-        "pressure_in": 30.27,
-        "precip_mm": 0.09,
-        "precip_in": 0.0,
-        "humidity": 77,
-        "cloud": 0,
-        "feelslike_c": 14.6,
-        "feelslike_f": 58.2,
-        "vis_km": 10.0,
-        "vis_miles": 6.0,
-        "uv": 3.0,
-        "gust_mph": 8.0,
-        "gust_kph": 12.9
-    }
- 
- */
-
-struct WeatherInfo: Codable {
+struct CurrentWeather: Codable {
     let lastUpdateTimestamp: UInt64
     let lastUpdateTimeFormatted: String
     let tempInCelsius: Double
     let tempInFahrenheit: Double
     private let isDayRaw: Int
-    let condition: WeatherCondition
+    let condition: CurrentCondition
     let windInMilesPerHour: Double
     let windInKilometerPerHour: Double
     let windInDegree: Int
@@ -106,7 +73,7 @@ struct WeatherInfo: Codable {
  },
  */
 
-struct WeatherCondition: Codable {
+struct CurrentCondition: Codable {
     let textInfo: String
     let iconUrl: String
     let weatherCode: Int

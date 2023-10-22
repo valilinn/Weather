@@ -9,10 +9,12 @@ import Foundation
 
 struct RealtimeWeatherResponse: Codable {
     let location: WeatherLocation
-    let currentWeather: WeatherInfo
+    let currentWeather: CurrentWeather
+    let forecastWeather: ForecastWeather
     
     enum CodingKeys: String, CodingKey {
         case location = "location"
         case currentWeather  = "current"
+        case forecastWeather = "forecast"
     }
 }

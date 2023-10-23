@@ -75,10 +75,6 @@ class WeatherViewController: UIViewController {
         
     }
     
-    @IBAction func refresh(_ sender: Any) {
-        viewModel.updateWeatherValues()
-    }
-    
     func updateValues() {
         viewModel.updateWeatherValues()
     }

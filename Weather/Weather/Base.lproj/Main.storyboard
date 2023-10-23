@@ -62,10 +62,9 @@
                                                         <rect key="frame" x="16" y="64" width="47" height="34.333333333333343"/>
                                                         <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal" title="Button"/>
-                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system"/>
-                                                        <connections>
-                                                            <action selector="refresh:" destination="Qo7-fY-ccE" eventType="touchUpInside" id="YQK-ta-b81"/>
-                                                        </connections>
+                                                        <buttonConfiguration key="configuration" style="plain" image="arrow.clockwise" catalog="system">
+                                                            <color key="baseForegroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
                                                     </button>
                                                 </subviews>
                                                 <constraints>

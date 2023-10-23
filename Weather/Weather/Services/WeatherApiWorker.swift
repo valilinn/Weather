@@ -16,9 +16,7 @@ enum WeatherRequestPath: String {
 class WeatherApiWorker {
     private let baseUlr = "weatherapi-com.p.rapidapi.com"
     private let apiKey = "1513a718cdmsh8029cf744888920p14a113jsn282b8a4b7b33"
-    var currentCity = "New York"
-    
-//    public weak var delegate: WeatherApiWorkerDelegate?
+    var currentCity = "Tychy"
     
     func makeCurrentWeatherRequest(_ completion: @escaping (RealtimeWeatherResponse) -> ()) {
         let urlComponents = makeUrlComponents(for: .currentWeather, place: currentCity)
@@ -30,29 +28,23 @@ class WeatherApiWorker {
         AF.request(urlComponents, headers: headers).response { [weak self] response in
             guard response.error == nil else {
                 print("WeatherApiWorker: Request error")
-//                self?.delegate?.gotError(description: "Request error")
                 return
             }
             
             guard let data = response.data else {
                 print("WeatherApiWorker: Response error")
-//                self?.delegate?.gotError(description: "Response error")
                 return
             }
             
             guard (200..<300).contains(response.response?.statusCode ?? 0) else {
                 print("WeatherApiWorker: Wrong Status code")
-//                self?.delegate?.gotError(description: "Wrong Status error")
                 return
             }
             
             guard let responseModel = try? JSONDecoder().decode(RealtimeWeatherResponse.self, from: data) else {
                 print("WeatherApiWorker: Decode error")
-//                self?.delegate?.gotError(description: "Decode error")
                 return
             }
-//            print("WeatherApiWorker: \(responseModel)")
-//            self?.delegate?.gotRealtimeWeather(response: responseModel)
             completion(responseModel)
         }
     }
@@ -61,7 +53,7 @@ class WeatherApiWorker {
         var components = URLComponents()
         components.scheme = "https"
         components.host = self.baseUlr
-        components.path = weatherType.rawValue  //"/current.json"
+        components.path = weatherType.rawValue  //"/forecast.json"
         components.queryItems = [URLQueryItem(name: "q", value: place)]
         return components
     }

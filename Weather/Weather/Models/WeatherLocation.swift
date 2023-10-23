@@ -7,20 +7,6 @@
 
 import Foundation
 
-/*
- "location": {
-         "name": "Tychy",
-         "region": "",
-         "country": "Poland",
-         "lat": 50.13,
-         "lon": 18.98,
-         "tz_id": "Europe/Warsaw",
-         "localtime_epoch": 1695552237,
-         "localtime": "2023-09-24 12:43"
-     },
- 
- */
-
 struct WeatherLocation: Codable {
     let cityName: String
     let stateName: String

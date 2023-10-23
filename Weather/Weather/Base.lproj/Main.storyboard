@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qo7-fY-ccE">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="22155" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Qo7-fY-ccE">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22131"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -143,6 +143,7 @@
                         <outlet property="cityLabel" destination="Qae-km-huZ" id="7nu-7A-xv0"/>
                         <outlet property="collectionView" destination="JwB-PY-PPa" id="HCY-yb-49I"/>
                         <outlet property="currentTemperatureLabel" destination="t9k-kt-qGG" id="aOP-7c-1HB"/>
+                        <outlet property="scrollView" destination="cxn-Fx-tvi" id="lB2-7r-ead"/>
                         <outlet property="tableView" destination="Epd-Qr-3Sl" id="2Ba-un-8rR"/>
                     </connections>
                 </viewController>

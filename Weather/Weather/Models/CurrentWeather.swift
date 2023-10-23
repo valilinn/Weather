@@ -65,14 +65,6 @@ struct CurrentWeather: Codable {
     }
 }
 
-/*
- "condition": {
-     "text": "Sunny",
-     "icon": "//cdn.weatherapi.com/weather/64x64/day/113.png",
-     "code": 1000
- },
- */
-
 struct CurrentCondition: Codable {
     let textInfo: String
     let iconUrl: String

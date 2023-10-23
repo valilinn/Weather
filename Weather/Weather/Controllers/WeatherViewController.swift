@@ -8,15 +8,12 @@
 import UIKit
 import Alamofire
 
-//enum WeatherRequestPath: String {
-//    case currentWeather = "/forecast.json"
-//}
-
 class WeatherViewController: UIViewController {
     
     var viewModel = WeatherViewModel()
     let refreshControl = UIRefreshControl()
-
+    
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var cityLabel: UILabel!
@@ -29,18 +26,12 @@ class WeatherViewController: UIViewController {
     var cellSpacing: CGFloat = 5
     
     private let settings = Settings()
-//    private let apiWorker = WeatherApiWorker()
-//    private let adapter = ValuesAdapter()
-    
-//    var lastResponse: RealtimeWeatherResponse?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         setupBinders()
-//        settings.loadFromUserDefaults()
         setupTableAndCollectionView()
-//        apiWorker.delegate = self
-//        apiWorker.makeCurrentWeatherRequest()
+        configureRefreshControl()
     }
     
     func setupBinders() {
@@ -82,21 +73,9 @@ class WeatherViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.backgroundColor = UIColor.clear
         
-        refreshControl.addTarget(self, action: #selector(refreshData), for: .valueChanged)
-        tableView.addSubview(refreshControl)
-        collectionView.addSubview(refreshControl)
     }
     
-//    func updateValues() {
-//        guard let info = lastResponse?.currentWeather else { return }
-//        
-//        cityLabel.text = apiWorker.currentCity
-//        currentTemperatureLabel.text = adapter.getTemperature(for: info, with: settings)
-//        
-//    }
-    
     @IBAction func refresh(_ sender: Any) {
-//        apiWorker.makeCurrentWeatherRequest()
         viewModel.updateWeatherValues()
     }
     
@@ -104,15 +83,20 @@ class WeatherViewController: UIViewController {
         viewModel.updateWeatherValues()
     }
     
-    @objc 
-    func refreshData() {
+    func configureRefreshControl() {
+        scrollView.refreshControl = UIRefreshControl()
+        scrollView.refreshControl?.tintColor = UIColor.white
+        scrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
+    }
+    
+    @objc
+    func handleRefreshControl() {
         updateValues()
-        tableView.reloadData()
-        collectionView.reloadData()
-        refreshControl.endRefreshing()
+        DispatchQueue.main.async {
+            self.scrollView.refreshControl?.endRefreshing()
+        }
     }
 }
-
 
 
 extension WeatherViewController: UITableViewDelegate, UITableViewDataSource {
@@ -196,15 +180,4 @@ extension WeatherViewController: UICollectionViewDelegate, UICollectionViewDataS
     
 }
 
-//extension WeatherViewController: WeatherApiWorkerDelegate {
-//    func gotRealtimeWeather(response: RealtimeWeatherResponse) {
-//            lastResponse = response
-//            updateValues()
-//    }
-//    
-//    func gotError(description: String) {
-//        let alert = UIAlertController(title: "Error", message: description, preferredStyle: .alert)
-//        alert.addAction(UIAlertAction(title: "OK", style: .default))
-//        present(alert, animated: true)
-//    }
-//}
+

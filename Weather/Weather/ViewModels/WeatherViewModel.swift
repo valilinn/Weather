@@ -16,11 +16,13 @@ class WeatherViewModel {
     var apiWorker = WeatherApiWorker()
     var adapter = ValuesAdapter()
     var settings = Settings()
+   
     
     func updateWeatherValues() {
         settings.loadFromUserDefaults()
         
         apiWorker.makeCurrentWeatherRequest { currentWeatherResponse in
+         
             self.cityName.value = currentWeatherResponse.location.cityName
             self.currentTemperature.value = self.adapter.getTemperature(for: currentWeatherResponse.currentWeather, with: self.settings)
         }

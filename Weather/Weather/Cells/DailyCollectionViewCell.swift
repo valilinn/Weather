@@ -14,12 +14,15 @@ class DailyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var maxTempLabel: UILabel!
     @IBOutlet weak var minTempLabel: UILabel!
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var roundedView: UIView!
     
     func setup() {
         dayLabel.text = "Today"
         maxTempLabel.text = "40 C"
         minTempLabel.text = "20 C"
         imageView.image = UIImage(named: "cloudWithMoon")
+        roundedView.layer.cornerRadius = 10
+        roundedView.layer.masksToBounds = true
     }
 }
 

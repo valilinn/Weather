@@ -41,6 +41,8 @@
 		EA8120172AEE6FA2003593A3 /* Sections.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8120162AEE6FA2003593A3 /* Sections.swift */; };
 		EA8120192AEE7AE5003593A3 /* HourlyInfoCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA8120182AEE7AE5003593A3 /* HourlyInfoCollectionViewCell.swift */; };
 		EA81201B2AEE7FE6003593A3 /* DailyCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81201A2AEE7FE6003593A3 /* DailyCollectionViewCell.swift */; };
+		EA81201D2AEE9C53003593A3 /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81201C2AEE9C53003593A3 /* DetailCollectionViewCell.swift */; };
+		EA81201F2AEE9E43003593A3 /* CollectionViewHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA81201E2AEE9E43003593A3 /* CollectionViewHeaderReusableView.swift */; };
 		EAC8A0D02ABF7974001602C8 /* ForecastTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC8A0CE2ABF7974001602C8 /* ForecastTableViewCell.swift */; };
 		EAC8A0D12ABF7974001602C8 /* ForecastTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAC8A0CF2ABF7974001602C8 /* ForecastTableViewCell.xib */; };
 		EAC8A0D42ABF8B44001602C8 /* WeatherDetailsCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC8A0D22ABF8B44001602C8 /* WeatherDetailsCollectionViewCell.swift */; };
@@ -109,6 +111,8 @@
 		EA8120162AEE6FA2003593A3 /* Sections.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Sections.swift; sourceTree = "<group>"; };
 		EA8120182AEE7AE5003593A3 /* HourlyInfoCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyInfoCollectionViewCell.swift; sourceTree = "<group>"; };
 		EA81201A2AEE7FE6003593A3 /* DailyCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA81201C2AEE9C53003593A3 /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
+		EA81201E2AEE9E43003593A3 /* CollectionViewHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewHeaderReusableView.swift; sourceTree = "<group>"; };
 		EAC8A0CE2ABF7974001602C8 /* ForecastTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastTableViewCell.swift; sourceTree = "<group>"; };
 		EAC8A0CF2ABF7974001602C8 /* ForecastTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ForecastTableViewCell.xib; sourceTree = "<group>"; };
 		EAC8A0D22ABF8B44001602C8 /* WeatherDetailsCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherDetailsCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 				EA43B5592AEDAAC70051700E /* MainInfoCollectionViewCell.swift */,
 				EA8120182AEE7AE5003593A3 /* HourlyInfoCollectionViewCell.swift */,
 				EA81201A2AEE7FE6003593A3 /* DailyCollectionViewCell.swift */,
+				EA81201C2AEE9C53003593A3 /* DetailCollectionViewCell.swift */,
+				EA81201E2AEE9E43003593A3 /* CollectionViewHeaderReusableView.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -540,7 +546,9 @@
 				EAC8A0D42ABF8B44001602C8 /* WeatherDetailsCollectionViewCell.swift in Sources */,
 				EA5770BA2AE5A6BB008B93E4 /* WeatherViewModel.swift in Sources */,
 				EA61D5712AB0D02A0001CCC4 /* WeatherViewController.swift in Sources */,
+				EA81201D2AEE9C53003593A3 /* DetailCollectionViewCell.swift in Sources */,
 				EA5770B72AE5818B008B93E4 /* ForecastWeather.swift in Sources */,
+				EA81201F2AEE9E43003593A3 /* CollectionViewHeaderReusableView.swift in Sources */,
 				EA307ECC2AC04C0300F2901C /* WeatherLocation.swift in Sources */,
 				EA43B5582AEDA4870051700E /* MainViewController.swift in Sources */,
 				EA61D56D2AB0D02A0001CCC4 /* AppDelegate.swift in Sources */,

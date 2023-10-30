@@ -26,7 +26,7 @@ class HourlyInfoCollectionViewCell: UICollectionViewCell {
     }
     
     func setup() {
-       
+        imageView.image = UIImage(named: "cloudWithMoon")
         roundedView.layer.cornerRadius = 10
         roundedView.layer.masksToBounds = true
     }

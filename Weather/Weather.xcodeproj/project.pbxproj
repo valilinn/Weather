@@ -175,7 +175,6 @@
 		EA307EC82AC04B6400F2901C /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				EA61D5702AB0D02A0001CCC4 /* WeatherViewController.swift */,
 				EA307ED42AC09AD300F2901C /* SettingsViewController.swift */,
 				EA43B5572AEDA4870051700E /* MainViewController.swift */,
 			);
@@ -185,14 +184,6 @@
 		EA307EC92AC04B8500F2901C /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				EA2AABCF2ABEEA9A008C62AE /* HourlyTableViewCell.swift */,
-				EA2AABD02ABEEA9A008C62AE /* HourlyTableViewCell.xib */,
-				EA2AABD72ABF0DCE008C62AE /* HourlyCollectionViewCell.swift */,
-				EA2AABD82ABF0DCE008C62AE /* HourlyCollectionViewCell.xib */,
-				EAC8A0CE2ABF7974001602C8 /* ForecastTableViewCell.swift */,
-				EAC8A0CF2ABF7974001602C8 /* ForecastTableViewCell.xib */,
-				EAC8A0D22ABF8B44001602C8 /* WeatherDetailsCollectionViewCell.swift */,
-				EAC8A0D32ABF8B44001602C8 /* WeatherDetailsCollectionViewCell.xib */,
 				EA307ED62AC0A8AF00F2901C /* SettingsTableViewCell.swift */,
 				EA307ED72AC0A8AF00F2901C /* SettingsTableViewCell.xib */,
 				EA43B5592AEDAAC70051700E /* MainInfoCollectionViewCell.swift */,
@@ -268,6 +259,7 @@
 				EA307EC92AC04B8500F2901C /* Cells */,
 				EA307ECA2AC04BC600F2901C /* Models */,
 				EA307ED32AC08B1100F2901C /* Services */,
+				EAC149B12AF00CC200D758E1 /* To delete */,
 				EA61D5722AB0D02A0001CCC4 /* Main.storyboard */,
 				EA61D5752AB0D02D0001CCC4 /* Assets.xcassets */,
 				EA61D5772AB0D02D0001CCC4 /* LaunchScreen.storyboard */,
@@ -291,6 +283,22 @@
 				EA61D58F2AB0D02D0001CCC4 /* WeatherUITestsLaunchTests.swift */,
 			);
 			path = WeatherUITests;
+			sourceTree = "<group>";
+		};
+		EAC149B12AF00CC200D758E1 /* To delete */ = {
+			isa = PBXGroup;
+			children = (
+				EA2AABCF2ABEEA9A008C62AE /* HourlyTableViewCell.swift */,
+				EA2AABD02ABEEA9A008C62AE /* HourlyTableViewCell.xib */,
+				EA2AABD72ABF0DCE008C62AE /* HourlyCollectionViewCell.swift */,
+				EA2AABD82ABF0DCE008C62AE /* HourlyCollectionViewCell.xib */,
+				EAC8A0CE2ABF7974001602C8 /* ForecastTableViewCell.swift */,
+				EAC8A0CF2ABF7974001602C8 /* ForecastTableViewCell.xib */,
+				EAC8A0D22ABF8B44001602C8 /* WeatherDetailsCollectionViewCell.swift */,
+				EAC8A0D32ABF8B44001602C8 /* WeatherDetailsCollectionViewCell.xib */,
+				EA61D5702AB0D02A0001CCC4 /* WeatherViewController.swift */,
+			);
+			path = "To delete";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

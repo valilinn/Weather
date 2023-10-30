@@ -13,10 +13,16 @@ class MainInfoCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var temperatureLabel: UILabel!
     @IBOutlet weak var infoLabel: UILabel!
     
-    func setup() {
-        cityLabel.text = "Katowice"
-        temperatureLabel.text = "30 C"
-        infoLabel.text = "Partly cloudy"
+    var viewModel: WeatherViewModel?
+    
+    func setupBinders() {
+        viewModel?.cityName.bind { [weak self] cityName in
+            self?.cityLabel.text = cityName
+        }
+        viewModel?.currentTemperature.bind { [weak self] temp in
+            self?.temperatureLabel.text = temp
+        }
+        
     }
     
 }

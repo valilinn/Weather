@@ -5,13 +5,15 @@
 //  Created by Валентина Лінчук on 28/10/2023.
 //
 
-import Foundation
 import UIKit
+import Alamofire
 
 class MainViewController: UIViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     private let sections = Sections()
+    private let settings = Settings()
+    var viewModel = WeatherViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +21,17 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.collectionViewLayout = createLayout()
         collectionView.backgroundColor = UIColor.clear
+        viewModel.x = 5
+        viewModel.completionHandler = { [weak self] in
+            DispatchQueue.main.async {
+                self?.collectionView.reloadData()
+            }
+        }
+        updateValues()
+        
     }
+    
+   
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
@@ -58,6 +70,17 @@ class MainViewController: UIViewController {
     private func supplementaryHeaderItem() -> NSCollectionLayoutBoundarySupplementaryItem {
         .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .estimated(20)), elementKind: UICollectionView.elementKindSectionHeader, alignment: .top)
     }
+    
+    func updateValues() {
+        viewModel.updateWeatherValues()
+        
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let destinationVC = segue.destination as? SettingsViewController {
+            destinationVC.settings = settings
+        }
+    }
 }
 
 extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSource {
@@ -68,13 +91,16 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         switch sections.sectionsList[section] {
         case .mainSection:
-            1
+            return 1
         case .hourlySection:
-            24
+            
+            collectionView.reloadData()
+            print("count -\(viewModel.hours.count), \(viewModel.hours[0].value)")
+           return viewModel.hours.count
         case .dailySection:
-            3
+            return 3
         case .detailSection:
-            6
+            return 6
         }
     }
     
@@ -84,13 +110,22 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
          switch sections.sectionsList[indexPath.section] {
          case .mainSection:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "MainInfoCollectionViewCell", for: indexPath) as! MainInfoCollectionViewCell
-             cell.setup()
+             cell.viewModel = viewModel
+             cell.setupBinders()
              return cell
              
          case .hourlySection:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyInfoCollectionViewCell", for: indexPath) as! HourlyInfoCollectionViewCell
-             cell.setup()
+             cell.viewModel = viewModel
+             print("cell model \(viewModel.hours.count)")
+             DispatchQueue.main.async {
+                 print("row - \(indexPath.row)")
+                 cell.setupBinders(indexPath.row)
+                 cell.setup()
+                 
+             }
              return cell
+             
          case .dailySection:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyCollectionViewCell", for: indexPath) as! DailyCollectionViewCell
              cell.setup()

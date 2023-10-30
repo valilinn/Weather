@@ -36,9 +36,6 @@
                                                         <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system">
                                                             <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </buttonConfiguration>
-                                                        <connections>
-                                                            <segue destination="aBx-KR-X0T" kind="showDetail" id="fSQ-K5-9T9"/>
-                                                        </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tychy, Poland" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qae-km-huZ">
                                                         <rect key="frame" x="8" y="129" width="377" height="42"/>
@@ -148,7 +145,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bBg-WQ-A1R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1101.5267175572519" y="7.746478873239437"/>
+            <point key="canvasLocation" x="1642" y="24"/>
         </scene>
         <!--Settings View Controller-->
         <scene sceneID="iD1-dz-OQG">
@@ -191,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3fO-Pi-wto" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1907.6335877862596" y="7.746478873239437"/>
+            <point key="canvasLocation" x="3392" y="24"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="CS5-iS-73a">
@@ -244,6 +241,9 @@
                                                     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <state key="normal" title="Button"/>
                                                     <buttonConfiguration key="configuration" style="plain" image="gearshape.fill" catalog="system"/>
+                                                    <connections>
+                                                        <segue destination="aBx-KR-X0T" kind="showDetail" id="EG9-VJ-7FS"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <color key="backgroundColor" red="0.054901960784313725" green="0.082352941176470587" blue="0.13333333333333333" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -469,7 +469,7 @@
                                 </collectionReusableView>
                             </collectionView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="s1M-SD-LQR"/>
+                        <viewLayoutGuide key="safeArea" id="iD3-V7-wdJ"/>
                         <color key="backgroundColor" red="0.039215686274509803" green="0.070588235294117646" blue="0.11372549019607843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="HAi-OE-7Uo" firstAttribute="leading" secondItem="PBX-Ue-bfC" secondAttribute="leading" id="baH-JV-JBD"/>
@@ -484,7 +484,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oNv-ID-0Zv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2700" y="23.943661971830988"/>
+            <point key="canvasLocation" x="2561" y="24"/>
         </scene>
     </scenes>
     <resources>

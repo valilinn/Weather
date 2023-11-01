@@ -22,7 +22,9 @@ class MainInfoCollectionViewCell: UICollectionViewCell {
         viewModel?.currentTemperature.bind { [weak self] temp in
             self?.temperatureLabel.text = temp
         }
-        
+        viewModel?.condition.bind { [weak self] info in
+            self?.infoLabel.text = info
+        }
     }
     
 }

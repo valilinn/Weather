@@ -23,6 +23,7 @@ final class ObservableObject<T> {
     
     func bind(_ observer: @escaping (T) -> ()) {
         observers.append(observer)
+        observer(value)
     }
     
     private func notifyObservers() {

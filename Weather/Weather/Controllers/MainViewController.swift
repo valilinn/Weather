@@ -14,6 +14,7 @@ class MainViewController: UIViewController {
     private let sections = Sections()
     private let settings = Settings()
     var viewModel = WeatherViewModel()
+    let refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,17 +22,29 @@ class MainViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.collectionViewLayout = createLayout()
         collectionView.backgroundColor = UIColor.clear
-        viewModel.x = 5
+        
         viewModel.completionHandler = { [weak self] in
             DispatchQueue.main.async {
                 self?.collectionView.reloadData()
             }
         }
         updateValues()
-        
+        refresh()
     }
     
-   
+    func refresh() {
+        collectionView.refreshControl = refreshControl
+        collectionView.refreshControl?.tintColor = UIColor.white
+        refreshControl.addTarget(self, action: #selector(refreshData(_:)), for: .valueChanged)
+    }
+    
+    @objc
+    func refreshData(_ sender: UIRefreshControl) {
+        
+        viewModel.updateWeatherValues() // или любой другой метод, обновляющий данные
+        
+        sender.endRefreshing()
+    }
     
     private func createLayout() -> UICollectionViewCompositionalLayout {
         UICollectionViewCompositionalLayout { [weak self] sectionIndex, layoutEnvironment in
@@ -44,7 +57,7 @@ class MainViewController: UIViewController {
                 let section = NSCollectionLayoutSection(group: group)
                 return section
             case .hourlySection:
-                let item = CompositionalLayout.createItem(width: .fractionalWidth(0.6), height: .fractionalHeight(1), spacing: 0)
+                let item = CompositionalLayout.createItem(width: .fractionalWidth(0.7), height: .fractionalHeight(1), spacing: 0)
                 let group = CompositionalLayout.createGroup(alignment: .horizontal, width: .absolute(70), height: .absolute(100), item: item, count: 1)
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
@@ -93,10 +106,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case .mainSection:
             return 1
         case .hourlySection:
-            
             collectionView.reloadData()
-            print("count -\(viewModel.hours.count), \(viewModel.hours[0].value)")
-           return viewModel.hours.count
+            if viewModel.hours.count == 1 {
+                return viewModel.hours.count
+            } else {
+                return 24
+            }
         case .dailySection:
             return 3
         case .detailSection:
@@ -117,18 +132,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
          case .hourlySection:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "HourlyInfoCollectionViewCell", for: indexPath) as! HourlyInfoCollectionViewCell
              cell.viewModel = viewModel
-             print("cell model \(viewModel.hours.count)")
              DispatchQueue.main.async {
-                 print("row - \(indexPath.row)")
                  cell.setupBinders(indexPath.row)
                  cell.setup()
-                 
              }
              return cell
              
          case .dailySection:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DailyCollectionViewCell", for: indexPath) as! DailyCollectionViewCell
-             cell.setup()
+             cell.viewModel = viewModel
+             DispatchQueue.main.async {
+                 cell.setupBinders(indexPath.row)
+                 cell.setup()
+             }
              return cell
          case .detailSection:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCollectionViewCell", for: indexPath) as! DetailCollectionViewCell

@@ -14,7 +14,7 @@ enum WeatherRequestPath: String {
 }
 
 class WeatherApiWorker {
-    private let baseUlr = "weatherapi-com.p.rapidapi.com"
+    private let baseURL = "weatherapi-com.p.rapidapi.com"
     private let apiKey = "1513a718cdmsh8029cf744888920p14a113jsn282b8a4b7b33"
     var currentCity = "Tychy"
     
@@ -22,7 +22,7 @@ class WeatherApiWorker {
         let urlComponents = makeUrlComponents(for: .currentWeather, place: currentCity)
         let headers: HTTPHeaders = HTTPHeaders([
             "X-RapidAPI-Key" : self.apiKey,
-            "X-RapidAPI-Host" : self.baseUlr
+            "X-RapidAPI-Host" : self.baseURL
         ])
         
         AF.request(urlComponents, headers: headers).response { [weak self] response in
@@ -52,9 +52,9 @@ class WeatherApiWorker {
     private func makeUrlComponents(for weatherType: WeatherRequestPath, place: String) -> URLComponents {
         var components = URLComponents()
         components.scheme = "https"
-        components.host = self.baseUlr
+        components.host = self.baseURL
         components.path = weatherType.rawValue  //"/forecast.json"
-        components.queryItems = [URLQueryItem(name: "q", value: place)]
+        components.queryItems = [URLQueryItem(name: "q", value: place), URLQueryItem(name: "days", value: "3")]
         return components
     }
     

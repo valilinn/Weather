@@ -16,6 +16,16 @@ class DailyCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var roundedView: UIView!
     
+    var viewModel: WeatherViewModel?
+    
+    func setupBinders(_ index: Int) {
+        viewModel?.dayOfTheWeek[index].bind { [weak self] day in
+            DispatchQueue.main.async { [weak self] in
+                self?.dayLabel.text = day ?? ""
+            }
+        }
+    }
+    
     func setup() {
         dayLabel.text = "Today"
         maxTempLabel.text = "40 C"

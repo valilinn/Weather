@@ -414,15 +414,15 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RuF-5H-rM3">
-                                                            <rect key="frame" x="16" y="111" width="73.333333333333329" height="37"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="31"/>
+                                                            <rect key="frame" x="16" y="104.33333333333333" width="66.333333333333329" height="33.666666666666671"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <color key="backgroundColor" red="0.062745098039215685" green="0.21176470588235294" blue="0.42745098039215684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="bottom" secondItem="RuF-5H-rM3" secondAttribute="bottom" constant="32" id="D0M-H7-zkA"/>
+                                                        <constraint firstAttribute="bottom" secondItem="RuF-5H-rM3" secondAttribute="bottom" constant="42" id="D0M-H7-zkA"/>
                                                         <constraint firstItem="PCg-z5-vEZ" firstAttribute="leading" secondItem="gnw-M7-n9d" secondAttribute="leading" constant="16" id="NBz-6n-ACq"/>
                                                         <constraint firstItem="RuF-5H-rM3" firstAttribute="leading" secondItem="gnw-M7-n9d" secondAttribute="leading" constant="16" id="xnO-Nj-tEI"/>
                                                         <constraint firstItem="PCg-z5-vEZ" firstAttribute="top" secondItem="gnw-M7-n9d" secondAttribute="top" constant="16" id="zLk-EX-6pL"/>

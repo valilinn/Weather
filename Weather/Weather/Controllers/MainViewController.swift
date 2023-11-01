@@ -58,7 +58,7 @@ class MainViewController: UIViewController {
                 return section
             case .hourlySection:
                 let item = CompositionalLayout.createItem(width: .fractionalWidth(0.7), height: .fractionalHeight(1), spacing: 0)
-                let group = CompositionalLayout.createGroup(alignment: .horizontal, width: .absolute(70), height: .absolute(100), item: item, count: 1)
+                let group = CompositionalLayout.createGroup(alignment: .horizontal, width: .absolute(90), height: .absolute(130), item: item, count: 1)
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .continuous
                 section.boundarySupplementaryItems = [self.supplementaryHeaderItem()]

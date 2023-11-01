@@ -113,9 +113,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 return 24
             }
         case .dailySection:
-            return 3
+            if viewModel.dayOfTheWeek.count == 1 {
+                return viewModel.hours.count
+            } else {
+                return 3
+            }
         case .detailSection:
-            return 6
+            if viewModel.detailedInfo.count == 1 {
+                return viewModel.detailedInfo.count
+            } else {
+                return 4
+            }
         }
     }
     
@@ -148,7 +156,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
              return cell
          case .detailSection:
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "DetailCollectionViewCell", for: indexPath) as! DetailCollectionViewCell
-             cell.setup()
+             cell.viewModel = viewModel
+             DispatchQueue.main.async {
+                 cell.setupBinders(indexPath.row)
+                 cell.setup()
+             }
              return cell
          }
          

@@ -24,6 +24,27 @@ class DailyCollectionViewCell: UICollectionViewCell {
                 self?.dayLabel.text = day ?? ""
             }
         }
+        viewModel?.minTempOfTheDay[index].bind { [weak self] temp in
+            DispatchQueue.main.async { [weak self] in
+                self?.minTempLabel.text = temp ?? ""
+            }
+        }
+        viewModel?.maxTempOfTheDay[index].bind { [weak self] temp in
+            DispatchQueue.main.async { [weak self] in
+                self?.maxTempLabel.text = temp ?? ""
+            }
+        }
+        viewModel?.imageOfTheDay[index].bind { [weak self] image in
+            guard let image = image else { return }
+            guard let imageURL = URL(string: "https:\(image)") else { return }
+            DispatchQueue.global().async { [weak self] in
+                if let data = try? Data(contentsOf: imageURL) {
+                    DispatchQueue.main.async { [weak self] in
+                        self?.imageView.image = UIImage(data: data)
+                    }
+                }
+            }
+        }
     }
     
     func setup() {
